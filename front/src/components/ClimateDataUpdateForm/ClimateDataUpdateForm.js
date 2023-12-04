@@ -1,25 +1,13 @@
-import infoIcone from '../../infoIcone.png';
 import Button from '../Button/Button';
 import Line from '../Line/Line';
+import UpdateInfo from './UpdateInfo/UpdateInfo';
 import './ClimateDataUpdateForm.css';
 
 function ClimateDataUpdateForm() {
     return (
         <div className='ClimateDataUpdateForm'>
             <div className='ClimateDataUpdateForm-container'>
-                <div className="ClimateDataUpdateForm-updateInfo">
-                    <div className="ClimateDataUpdateForm-updateInfo-imageContainer">
-                        <img
-                            className="ClimateDataUpdateForm-updateInfo-imageContainer-image"
-                            src={infoIcone}
-                            alt=""
-                        />
-                    </div>
-                    <div className='ClimateDataUpdateForm-updateInfo-textContainer'>
-                        <p>La mise à jour des données est un dialogue entre votre entreprise et OpenClimat qui vérifie les données. Aucune information soumise dans ce formulaire ne sera publiée sans discussion préalable.</p>
-                        <p>Prochaine analyse: <strong>Décembre 2023</strong></p>
-                    </div>
-                </div>
+                <UpdateInfo/>
 
                 <div className="ClimateDataUpdateForm-updateDescription">
                     <h1>Vous souhaitez demander une mise à jour de votre page publique OpenClimat ?</h1>

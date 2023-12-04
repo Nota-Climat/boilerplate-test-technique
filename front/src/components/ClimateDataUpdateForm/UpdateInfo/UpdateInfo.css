@@ -1,0 +1,27 @@
+.UpdateInfo {
+    background-color: #EEEFFE;
+    padding: 24px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 16px;
+}
+
+.UpdateInfo-imageContainer {
+    margin: auto;
+    padding: 16px;
+}
+
+.UpdateInfo-imageContainer-image {
+    width: 36px;
+    height: 36px;
+}
+
+.UpdateInfo-textContainer {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #505FEE;
+    text-align: left;
+}
