@@ -1,4 +1,5 @@
 import infoIcone from '../../infoIcone.png';
+import Button from '../Button/Button';
 import Line from '../Line/Line';
 import './ClimateDataUpdateForm.css';
 
@@ -91,7 +92,7 @@ function ClimateDataUpdateForm() {
                 </div>
             </div>
             <div className='ClimateDataUpdateForm-buttonContainer'>
-                <button className='ClimateDataUpdateForm-buttonContainer-button'>Commencer</button>
+                <Button className={ 'ClimateDataUpdateForm-buttonContainer-button' } title={ 'Commencer'} />
             </div>
         </div>
     )
