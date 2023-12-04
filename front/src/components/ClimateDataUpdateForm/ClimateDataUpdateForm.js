@@ -1,4 +1,5 @@
 import infoIcone from '../../infoIcone.png';
+import Line from '../Line/Line';
 import './ClimateDataUpdateForm.css';
 
 function ClimateDataUpdateForm() {
@@ -30,7 +31,7 @@ function ClimateDataUpdateForm() {
                     </p>
                 </div>
 
-                <div className="ClimateDataUpdateForm-line"></div>
+                <Line className={"ClimateDataUpdateForm-line"} />
 
                 <div className="ClimateDataUpdateForm-updateForm">
                     <h1>Contact</h1>
