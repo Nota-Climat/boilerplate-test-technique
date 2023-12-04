@@ -1,17 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './UpdateForm.css';
 
-function UpdateForm() {
+function UpdateForm({ submit, afterSubmit }) {
     const [ firstName, setFirstName ] = useState("");
     const [ lastName, setLastName ] = useState("");
     const [ job, setJob ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ phoneNumbers, setPhoneNumbers ] = useState("");
 
+    const handleSubmit = () => {
+        console.log('submit ok')
+    }
+
+    useEffect(() => {
+        if (submit) {
+            handleSubmit();
+            afterSubmit();
+        }
+    }, [submit, afterSubmit, handleSubmit]);
+
     return (
         <div className="UpdateForm">
             <h1>Contact</h1>
-            <form className="" id="UpdateForm">
+            <form onSubmit={handleSubmit} className="" id="UpdateForm">
                 <div className="UpdateForm-groupLabel">
                 <label>
                         Nom
