@@ -1,27 +1,36 @@
+import { useState } from "react";
 import './UpdateForm.css';
 
-function updateForm() {
+function UpdateForm() {
+    const [ firstName, setFirstName ] = useState("");
+    const [ lastName, setLastName ] = useState("");
+    const [ job, setJob ] = useState("");
+    const [ email, setEmail ] = useState("");
+    const [ phoneNumbers, setPhoneNumbers ] = useState("");
+
     return (
         <div className="UpdateForm">
             <h1>Contact</h1>
-            <form className="">
+            <form className="" id="UpdateForm">
                 <div className="UpdateForm-groupLabel">
                 <label>
                         Nom
                         <br/>
                         <input
-                            value=""
+                            value={ lastName }
                             type="text"
-                            placeholder=""
+                            placeholder="Nom..."
+                            onChange={(event) => setLastName(event.target.value)}
                     />
                     </label>
                     <label className="">
                         Prénom
                         <br/>
                         <input
-                            value=""
+                            value={ firstName }
                             type="text"
-                            placeholder=""
+                            placeholder="Prénom..."
+                            onChange={(event) => setFirstName(event.target.value)}
                         />
                     </label>
                 </div >
@@ -30,9 +39,10 @@ function updateForm() {
                         Votre poste
                         <br/>
                         <input
-                            value="toto"
+                            value={ job }
                             type="text"
-                            placeholder=""
+                            placeholder="Intitulé poste..."
+                            onChange={(event) => setJob(event.target.value)}
                         />
                     </label>
                 </div>
@@ -41,18 +51,20 @@ function updateForm() {
                         Adresse email
                         <br/>
                         <input
-                            value=""
+                            value={ email }
                             type="text"
-                            placeholder=""
+                            placeholder="Email..."
+                            onChange={(event) => setEmail(event.target.value)}
                         />
                     </label>
                     <label className="">
                         Numéro de téléphone
                         <br/>
                         <input
-                            value=""
+                            value={ phoneNumbers }
                             type="text"
-                            placeholder=""
+                            placeholder="Numéro..."
+                            onChange={(event) => setPhoneNumbers(event.target.value)}
                         />
                     </label>
                 </div>
@@ -61,4 +73,4 @@ function updateForm() {
     )
 }
 
-export default updateForm;
+export default UpdateForm;
