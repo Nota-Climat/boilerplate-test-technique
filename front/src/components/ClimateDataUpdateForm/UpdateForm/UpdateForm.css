@@ -1,0 +1,37 @@
+.UpdateForm {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+.UpdateForm h1 {
+    color: #171725;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    letter-spacing: 0.1px;
+}
+
+.UpdateForm-groupLabel {
+    display: flex;
+    justify-content:flex-start;
+    padding-bottom: 16px;
+}
+
+.UpdateForm label {
+    margin-right: 24px;
+}
+
+.UpdateForm input {
+    width: 360px;
+    height: 25px;
+    border-radius: 6px;
+    border: 1px solid #ECEEF4;
+    padding: 12px 16px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    margin-bottom: 8px;
+    font-family: 'Poppins', sans-serif;
+}
