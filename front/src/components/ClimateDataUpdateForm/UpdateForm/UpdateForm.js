@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import axios from 'axios';
 import validateEmail from "../../../services/validateEmail";
 import validatePhone from "../../../services/validatePhone";
@@ -11,7 +12,12 @@ function UpdateForm() {
     const [ job, setJob ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ phoneNumbers, setPhoneNumbers ] = useState("");
-    const [ errorMessage, setErrorMessage ] = useState("");  
+
+    const [ errorMessageEmail, setErrorMessageEmail ] = useState("");
+    const [ errorMessagePhone, setErrorMessagePhone ] = useState("");
+    const [ errorMessage, setErrorMessage ] = useState("");
+
+    const location = useLocation();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -22,25 +28,47 @@ function UpdateForm() {
             setErrorMessage("Tous les champs sont requis.");
             isValid = false;            
         } else if (phoneNumbers && !validatePhone(phoneNumbers)){
-            setErrorMessage("Le format du telephone n'est pas bon.");
+            setErrorMessagePhone("Le format du telephone n'est pas bon.");
             isValid = false;
         } else if (email && !validateEmail(email)){
-            setErrorMessage("Le format de l'email n'est pas bon.");
+            setErrorMessageEmail("Le format de l'email n'est pas bon.");
             isValid = false;
         } else {
             setErrorMessage('');
+            setErrorMessageEmail('');
+            setErrorMessagePhone('');
         }
         
         if(isValid){
-            console.log('submit ok');
             try{
-            const response = await axios.post('http://localhost:3000/form', { phoneNumbers, job, email, lastName, firstName})
-            console.log(response.data)
+                const response = await axios.post('http://localhost:3000/form', { phoneNumbers, job, email, lastName, firstName})
+                console.log(response.data)
             } catch(error) {
                 console.error(error)
             };
         }
     };
+
+    useEffect(() => {
+        const getDraft = async () => {
+            try{
+                const queryParams = new URLSearchParams(location.search);
+                const draft = queryParams.get('draft');
+                if (draft === '12345'){
+                    const response = await axios.get(`http://localhost:3000/form?draft=${draft}`)
+                    const {email, job, firstName, lastName, phoneNumbers} = response.data;
+                    setEmail(email);
+                    setPhoneNumbers(phoneNumbers);
+                    setJob(job);
+                    setFirstName(firstName);
+                    setLastName(lastName);
+                }
+            } catch(error){
+                console.error(error)
+            }
+        };
+        getDraft();
+    }, [location.search]);
 
     return (
         <div className="UpdateForm">
@@ -95,6 +123,11 @@ function UpdateForm() {
                             placeholder="Email..."
                             onChange={(event) => setEmail(event.target.value)}
                         />
+                        { errorMessageEmail &&
+                            <div className="UpdateForm-errorMessage">
+                                <p >{ errorMessageEmail }</p>
+                            </div>
+                        }
                     </label>
                     <label className="">
                         Numéro de téléphone
@@ -105,6 +138,11 @@ function UpdateForm() {
                             placeholder="Numéro..."
                             onChange={(event) => setPhoneNumbers(event.target.value)}
                         />
+                        { errorMessagePhone &&
+                            <div className="UpdateForm-errorMessage">
+                                <p >{ errorMessagePhone }</p>
+                            </div>
+                        }
                     </label>
                 </div>
             </form>
