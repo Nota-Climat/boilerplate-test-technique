@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from 'axios';
 import validateEmail from "../../../services/validateEmail";
 import validatePhone from "../../../services/validatePhone";
 
@@ -31,10 +32,15 @@ function UpdateForm() {
         }
         
         if(isValid){
-          console.log('submit ok');
+            console.log('submit ok');
+            try{
+            const response = await axios.post('http://localhost:3000/form', { phoneNumbers, job, email, lastName, firstName})
+            console.log(response.data)
+            } catch(error) {
+                console.error(error)
+            };
         }
-        
-    }
+    };
 
     return (
         <div className="UpdateForm">
