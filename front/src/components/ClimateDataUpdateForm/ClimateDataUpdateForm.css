@@ -1,5 +1,6 @@
 .ClimateDataUpdateForm {
     background-color: #F4F4F4;
+    padding-bottom: 90px;
 }
 
 .ClimateDataUpdateForm-container {
@@ -24,6 +25,10 @@
     padding: 0px, 60px, 0px, 60px;
     border-top: 1px;
     border-color: #DEE2E6;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .ClimateDataUpdateForm-buttonContainer-button {
@@ -40,3 +45,13 @@
     line-height: 24px;
 }
 
+@media only screen and (max-width: 900px) {
+    .ClimateDataUpdateForm-container {
+        background-color: white;
+        padding: 24px;
+        margin: auto;
+        border-radius: 18px;
+        width: 90%;
+        height: 100%;
+    }
+}

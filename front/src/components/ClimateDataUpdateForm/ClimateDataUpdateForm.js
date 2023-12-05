@@ -3,6 +3,7 @@ import Line from '../Line/Line';
 import UpdateDescription from './UpdateDescription/UpdateDescription';
 import UpdateForm from './UpdateForm/UpdateForm';
 import UpdateInfo from './UpdateInfo/UpdateInfo';
+
 import './ClimateDataUpdateForm.css';
 
 function ClimateDataUpdateForm() {

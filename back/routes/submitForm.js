@@ -6,7 +6,7 @@ const submitForm = (req, res) => {
 
     const readLogFile = () => { fs.readFile(logFile, 'utf8', (err, data) => {
         if(err){
-            console.error('Error to write the file', err);
+            console.error('Error to read the file', err);
         } else { 
             const content = data;
             console.log(content); 

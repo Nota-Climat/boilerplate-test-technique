@@ -25,3 +25,9 @@
     color: #505FEE;
     text-align: left;
 }
+
+@media only screen and (max-width: 900px) {
+    .UpdateInfo-imageContainer-image {
+        display: none;
+    }
+}
