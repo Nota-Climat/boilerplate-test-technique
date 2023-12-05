@@ -1,0 +1,57 @@
+.ClimateDataUpdateForm {
+    background-color: #F4F4F4;
+    padding-bottom: 90px;
+}
+
+.ClimateDataUpdateForm-container {
+    background-color: white;
+    padding: 24px;
+    margin: auto;
+    border-radius: 18px;
+    width: 821px;
+    height: 764px;
+}
+
+.ClimateDataUpdateForm-line {
+    background-color: #DEE2E6;
+    height: 1px;
+    width: 100%;
+}
+
+.ClimateDataUpdateForm-buttonContainer {
+    height: 77px;
+    background-color: white;
+    margin-top: 10px;
+    padding: 0px, 60px, 0px, 60px;
+    border-top: 1px;
+    border-color: #DEE2E6;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.ClimateDataUpdateForm-buttonContainer-button {
+    width: 150px;
+    height: 45px;
+    border: none;
+    border-radius: 100px;
+    background-color: #505FEE;
+    padding: 10px, 24px, 10px, 24px;
+    margin: 10px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+@media only screen and (max-width: 900px) {
+    .ClimateDataUpdateForm-container {
+        background-color: white;
+        padding: 24px;
+        margin: auto;
+        border-radius: 18px;
+        width: 90%;
+        height: 100%;
+    }
+}

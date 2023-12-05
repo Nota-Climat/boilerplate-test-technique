@@ -1,5 +1,5 @@
 const getDraft = async (req, res) => {
-  if (req.query.id == '12345') {
+  if (req.query.draft == '12345') {
     const draft = {
       id: 12345,
       firstName: "John",
