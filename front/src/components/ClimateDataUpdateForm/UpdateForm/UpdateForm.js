@@ -1,27 +1,49 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import validateEmail from "../../../services/validateEmail";
+import validatePhone from "../../../services/validatePhone";
+
 import './UpdateForm.css';
 
-function UpdateForm({ submit, afterSubmit }) {
+function UpdateForm() {
     const [ firstName, setFirstName ] = useState("");
     const [ lastName, setLastName ] = useState("");
     const [ job, setJob ] = useState("");
     const [ email, setEmail ] = useState("");
     const [ phoneNumbers, setPhoneNumbers ] = useState("");
+    const [ errorMessage, setErrorMessage ] = useState("");  
 
-    const handleSubmit = () => {
-        console.log('submit ok')
-    }
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
-    useEffect(() => {
-        if (submit) {
-            handleSubmit();
-            afterSubmit();
+        let isValid = true;
+    
+        if (!lastName || !firstName || !email || !job || !phoneNumbers) {
+            setErrorMessage("Tous les champs sont requis.");
+            isValid = false;            
+        } else if (phoneNumbers && !validatePhone(phoneNumbers)){
+            setErrorMessage("Le format du telephone n'est pas bon.");
+            isValid = false;
+        } else if (email && !validateEmail(email)){
+            setErrorMessage("Le format de l'email n'est pas bon.");
+            isValid = false;
+        } else {
+            setErrorMessage('');
         }
-    }, [submit, afterSubmit, handleSubmit]);
+        
+        if(isValid){
+          console.log('submit ok');
+        }
+        
+    }
 
     return (
         <div className="UpdateForm">
             <h1>Contact</h1>
+            { errorMessage &&
+                <div className="UpdateForm-errorMessage">
+                    <p >{ errorMessage }</p>
+                </div>
+            }
             <form onSubmit={handleSubmit} className="" id="UpdateForm">
                 <div className="UpdateForm-groupLabel">
                 <label>
